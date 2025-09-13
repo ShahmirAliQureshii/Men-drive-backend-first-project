@@ -29,7 +29,7 @@ router.post(
       email,
       password: hashedPassword,
     });
-    res.json(newUser);
+    res.render("login");
   }
 );
 
@@ -38,7 +38,7 @@ router.get("/login", (req, res) => {
 });
 
 router.post(
-  "/login",
+  "/home",
   body("username").trim().isLength({ min: 3 }),
   body("password").trim().isLength({ min: 5 }),
   async (req, res) => {
@@ -71,7 +71,7 @@ router.post(
       process.env.JWT_SECRET
     );
     res.cookie('token', token);
-    res.send("Login successful");
+    res.render("home");
   }
 );
 
