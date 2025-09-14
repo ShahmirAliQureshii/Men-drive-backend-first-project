@@ -72,7 +72,7 @@ router.post(
     );
     res.cookie('token', token);
     const model = await userModel.find();
-    res.json(model);
+    res.render("home" );
   }
 );
 
