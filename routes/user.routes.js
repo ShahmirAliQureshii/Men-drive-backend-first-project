@@ -71,7 +71,8 @@ router.post(
       process.env.JWT_SECRET
     );
     res.cookie('token', token);
-    res.render("home");
+    const model = await userModel.find();
+    res.json(model);
   }
 );
 
